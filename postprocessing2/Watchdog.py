@@ -28,6 +28,7 @@ import searcher_networkmilfvr
 import searcher_networkkink
 import searcher_sitenaughtyamerica
 import searcher_networkbadoinkvr
+import searcher_siteteamskeet
 ## Functions
 import LoggerFunction
 import RenamerFunction
@@ -351,6 +352,12 @@ class Handler(FileSystemEventHandler):
                                 ResultsMatrix = searcher_sitebangbros.search(siteName,siteBaseURL,siteSearchURL,searchTitle,searchDate,WorkingDir)
                                 new_filename = RenamerFunction.renamer(siteName,searchTitle,filename_type,ResultsMatrix,pref_ID,pref_StripSymbol,WorkingDir)
                             ########################################## All sites that are under the Bangbros - End ############################################
+                            ########################################## All sites that are under the Teamskeet - Start ##########################################
+                            ## Teamskeet + Subsites
+                            elif ((187 <= siteID <= 215)):
+                                ResultsMatrix = searcher_siteteamskeet.search(siteName,siteBaseURL,siteSearchURL,searchTitle,searchDate,WorkingDir)
+                                new_filename = RenamerFunction.renamer(siteName,searchTitle,filename_type,ResultsMatrix,pref_ID,pref_StripSymbol,WorkingDir)
+                            ########################################## All sites that are under the Teamskeet - End ############################################
                             ########################################## All sites that are under the Pornpros - Start ##########################################
                             ## PassionHD
                             elif ((siteID == 306)):
@@ -482,8 +489,7 @@ class Handler(FileSystemEventHandler):
                                     else:
                                         loggerwatchdog.info("Couldn't detect site sub-folder to %s location. Try to create site's sub-folder and move the %s file there" % (DIRECTORY_TO_MOVE,new_filename))
                                         try:
-                                            os.mkdir(DIRECTORY_TO_MOVE+'\\'+siteFolder+'\\')
-                                            os.rename(file_path,r''+DIRECTORY_TO_MOVE+'\\'+siteFolder+'\\'+new_filename)
+                                            os.rename(file_path,r''+DIRECTORY_TO_MOVE+'\\'+new_filename)
                                         except OSError:
                                             loggerwatchdog.info ("There was an error moving %s file to %s location" % (new_filename,DIRECTORY_TO_MOVE))
                                         else:
